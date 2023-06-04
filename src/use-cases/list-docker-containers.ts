@@ -15,6 +15,8 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
     const containerId = await this.getDockerForLog(dockerContainers);
 
     await this.createLoggerForContainer(containerId);
+
+    process.abort();
   }
 
   private async createLoggerForContainer(containerId: string) {
