@@ -1,13 +1,15 @@
 {
   "name": "apolo-docker-cli",
-  "version": "1.0.1",
-  "main": "index.js",
+  "version": "1.0.2",
+  "main": "src/main.ts",
   "license": "MIT",
   "description": "A CLI tool for docker cli logs",
+  "author": "luminuszz",
   "scripts": {
     "build": "yarn babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev": "yarn tsc && node out/src/main.js",
-    "push": "yarn publish"
+    "push": "yarn publish",
+    "prepush": "yarn build"
   },
   "bin": {
     "apolo": "dist/main.js",
