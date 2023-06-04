@@ -1477,6 +1477,11 @@ babel-plugin-transform-typescript-metadata@^0.3.2:
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
+babel-plugin-tsconfig-paths@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-tsconfig-paths/-/babel-plugin-tsconfig-paths-1.0.3.tgz#1e7e4756e1266ea8ba3b735333632b98dae62bc9"
+  integrity sha512-eBTjzXpx0CXO2gooYPyIU1joS/eK1Vk2+oLhJDwRwIgh2+2kD/j649eYNtHjFKuXr36/4Y0ytPORLyiey7MLRA==
+
 babel-runtime@^6.2.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"

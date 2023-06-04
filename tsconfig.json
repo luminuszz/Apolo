@@ -16,11 +16,7 @@
     "outDir": "./out",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "paths": {
-      "@core/*": [
-        "./src/core/*"
-      ]
-    }
+   
   },
   "exclude": [
     "node_modules",
