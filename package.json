@@ -1,6 +1,6 @@
 {
-  "name": "bard",
-  "version": "1.0.0",
+  "name": "apolo-docker-cli",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "description": "A CLI tool for docker cli logs",
@@ -10,8 +10,8 @@
     "push": "yarn publish"
   },
   "bin": {
-    "bard": "dist/main.js",
-    "br": "dist/main.js"
+    "apolo": "dist/main.js",
+    "ap": "dist/main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
