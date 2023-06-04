@@ -45,16 +45,18 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
       type: "list",
       name: "containerId",
       message: "Select a container to show logs",
-      choices: dockerContainers.map((dockerContainer) => ({
-        name: ` ${dockerContainer.State === "running" ? "✅" : "❌"} ${
-          dockerContainer.ID
-        } - ${dockerContainer.Image} - ${dockerContainer.State} - ${
-          dockerContainer.Status
-        }`,
-        value: dockerContainer.ID,
-        disabled: dockerContainer.State !== "running",
-        checked: dockerContainer.State === "running",
-      })),
+      choices: dockerContainers.map((dockerContainer) => {
+        const containerIsRunning = dockerContainer.State === "running";
+
+        return {
+          name: ` ${containerIsRunning ? "✅" : "❌"} ${dockerContainer.ID} - ${
+            dockerContainer.Image
+          } - ${dockerContainer.State} - ${dockerContainer.Status}`,
+          value: dockerContainer.ID,
+          disabled: !containerIsRunning,
+          checked: containerIsRunning,
+        };
+      }),
     });
 
     return containerId;

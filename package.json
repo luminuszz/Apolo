@@ -5,7 +5,12 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "dev": "yarn tsc && node out/src/main.js"
+    "dev": "yarn tsc && node out/src/main.js",
+    "push": "yarn publish"
+  },
+  "bin": {
+    "docker-cli": "dist/main.js",
+    "dc": "dist/main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
