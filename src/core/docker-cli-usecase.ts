@@ -1,5 +1,8 @@
 import inquirer from 'inquirer';
 import shellJs from 'shelljs';
+import inquirerPrompt from 'inquirer-autocomplete-prompt';
+
+inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
 export abstract class DockerCliUseCase {
 	protected readonly shellCommander: typeof shellJs;
@@ -11,5 +14,5 @@ export abstract class DockerCliUseCase {
 		this.shellInputs = inquirer;
 	}
 
-	public	abstract handle(): Promise<void>;
+	public abstract handle(): Promise<void>;
 }
