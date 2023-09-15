@@ -1,6 +1,6 @@
 {
   "name": "apolo-docker-cli",
-  "version": "3.0.3",
+  "version": "3.1.3",
   "main": "src/main.ts",
   "license": "MIT",
   "description": "A CLI tool for docker cli logs",
@@ -12,7 +12,8 @@
     "prepush": "yarn build"
   },
   "bin": {
-    "apolo": "out/src/main.js"
+    "apolo": "out/src/main.js",
+    "ap": "out/src/main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
