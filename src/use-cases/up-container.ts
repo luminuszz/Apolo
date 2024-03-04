@@ -33,7 +33,6 @@ export class UpContainerUseCase extends DockerCliUseCase {
 			);
 
 			if (selectedContainer) {
-				console.log(selectedContainer);
 				this.startContainer(selectedContainer.value);
 				this.shellCommander.echo(
 					`Container ${selectedContainer.value} started`,

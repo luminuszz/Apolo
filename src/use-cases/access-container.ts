@@ -35,7 +35,6 @@ export class AccessContainer extends DockerCliUseCase {
 			);
 
 			if (selectedContainer) {
-
       const {command} =  await this.shellInputs.prompt<{command:string}>({
           message: "Enter the command to run in the container:",
           type: "input",
@@ -48,7 +47,7 @@ export class AccessContainer extends DockerCliUseCase {
 }
 
   private listDockerContainers(): DockerContainer[] {
-		const string = this.shellCommander.exec('docker ps -a --format "json"');
+		const string = this.shellCommander.exec('docker ps -a --format "json"', {silent: true});
 
 		const dockerContainers = string.stdout
 			.split('\n')
