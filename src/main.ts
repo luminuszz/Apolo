@@ -43,14 +43,14 @@ export class DockerCli {
 				await upContainerUseCase.handle();
 			});
 
-	/* 		this.shellCommander
+	 		this.shellCommander
 			.command('access-container')
 			.description("access a container using sh terminal")
 			.alias("sh")
 			.action(async () => {
 				const accessContainer = new AccessContainer();
 				await accessContainer.handle();
-			}) */
+			}) 
 
 
 		this.shellCommander
