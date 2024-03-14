@@ -31,6 +31,9 @@ List all up container to log
  ap l 
 ```
 
+![image](https://github.com/luminuszz/Apolo-docker-cli/assets/48535259/b5446f1d-3c18-4314-9410-adc45e4b8c4d)
+
+
 
 #### UP
 
@@ -38,15 +41,22 @@ List all off container to up
 ```shell
  ap up 
 ```
+![image](https://github.com/luminuszz/Apolo-docker-cli/assets/48535259/5b2760ee-45d2-49d7-9d6c-eafd409f80b4)
+
 
 #### Down
 
 List all up container to down
 ```shell
- ap up 
+ ap st 
 ```
+![image](https://github.com/luminuszz/Apolo-docker-cli/assets/48535259/93709fa7-6388-409d-8fca-576125548baa)
+
 
 #### SH
+
+![image](https://github.com/luminuszz/Apolo-docker-cli/assets/48535259/54cec83f-f72f-41a2-885c-b8a3b9659aae)
+
 
 List all up container to run any command
 ```shell
