@@ -1,6 +1,6 @@
 {
   "name": "apolo-docker-cli",
-  "version": "3.1.9",
+  "version": "3.1.10",
   "main": "src/main.ts",
   "license": "MIT",
   "description": "A CLI tool for docker cli logs",
