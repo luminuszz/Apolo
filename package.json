@@ -1,19 +1,19 @@
 {
   "name": "apolo-docker-cli",
-  "version": "3.1.10",
-  "main": "src/main.ts",
+  "version": "3.1.11",
+  "main": "./out/main.js",
   "license": "MIT",
   "description": "A CLI tool for docker cli logs",
   "author": "luminuszz",
   "scripts": {
     "build": "pnpm babel src --extensions \".js,.ts\" --out-dir out --copy-files",
-    "dev": "pnpm tsc && node out/src/main.js",
+    "dev": "pnpm tsc && node out/main.js",
     "push": "pnpm publish",
     "prepush": "pnpm build"
   },
   "bin": {
-    "apolo": "out/src/main.js",
-    "ap": "out/src/main.js"
+    "apolo": "out/main.js",
+    "ap": "out/main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
