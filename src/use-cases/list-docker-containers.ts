@@ -1,6 +1,6 @@
-import { DockerCliUseCase } from '../core/docker-cli-usecase';
-import { type DockerContainer } from '../dto/docker-container';
-import { autoComplete } from '../utils/auto-complate';
+import { DockerCliUseCase } from "../core/docker-cli-usecase";
+import { type DockerContainer } from "../dto/docker-container";
+import { autoComplete } from "../utils/auto-complate";
 
 export class ListDockerContainersUseCase extends DockerCliUseCase {
 	public async handle(): Promise<void> {
@@ -8,8 +8,8 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
 
 		const containerId = await this.getDockerForLog(dockerContainers);
 
-		if(!containerId) {
-			this.shellCommander.echo('No container selected');
+		if (!containerId) {
+			this.shellCommander.echo("No container selected");
 			process.exit();
 		}
 
@@ -19,7 +19,7 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
 	}
 
 	private async createLoggerForContainer(containerId: string) {
-		this.shellCommander.exec(`docker logs -f ${containerId}`);
+		this.shellCommander.exec(`docker logs --tail 2000 -f  ${containerId}`);
 	}
 
 	private listDockerDockerContainers(): DockerContainer[] {
@@ -28,7 +28,7 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
 		});
 
 		const dockerContainers = string.stdout
-			.split('\n')
+			.split("\n")
 			.filter((item) => item)
 			.map((item) => JSON.parse(item));
 
@@ -38,16 +38,14 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
 	private async getDockerForLog(
 		dockerContainers: DockerContainer[],
 	): Promise<string | null> {
-
-
 		const choices = dockerContainers.map((dockerContainer) => {
-			const containerIsRunning = dockerContainer.State === 'running';
+			const containerIsRunning = dockerContainer.State === "running";
 
 			return {
-				name: ` ${containerIsRunning ? '✅' : '❌'} - ${
+				name: ` ${containerIsRunning ? "✅" : "❌"} - ${
 					dockerContainer.Image
 				} - ${dockerContainer.State} - ${dockerContainer.Status} - ${
-					dockerContainer.Ports || 'No ports mapping'
+					dockerContainer.Ports || "No ports mapping"
 				}`,
 				value: dockerContainer.ID,
 				disabled: !containerIsRunning,
@@ -55,22 +53,24 @@ export class ListDockerContainersUseCase extends DockerCliUseCase {
 			};
 		});
 
-		const {containerName} = await this.shellInputs.prompt<{
+		const { containerName } = await this.shellInputs.prompt<{
 			containerName: string;
-		}>([{
-			type: 'autocomplete' as any,
-			name: 'containerName',
-			message: 'Select a container to show logs',
-			source: (_: any, value = '') =>
-			autoComplete(
-				value,
-				choices.map((choice) => choice.name),
-			),
-			choices,
-		}]);
+		}>([
+			{
+				type: "autocomplete" as any,
+				name: "containerName",
+				message: "Select a container to show logs",
+				source: (_: any, value = "") =>
+					autoComplete(
+						value,
+						choices.map((choice) => choice.name),
+					),
+				choices,
+			},
+		]);
 
-		const container = choices.find(choice => choice.name === containerName )
+		const container = choices.find((choice) => choice.name === containerName);
 
-		return  container?.value ?? null
+		return container?.value ?? null;
 	}
 }
