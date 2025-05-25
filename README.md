@@ -44,6 +44,15 @@ List all off container to up
 ![image](https://github.com/luminuszz/Apolo-docker-cli/assets/48535259/5b2760ee-45d2-49d7-9d6c-eafd409f80b4)
 
 
+#### Restart container
+
+```shell
+ ap r
+```
+![image](./images/restart.png)
+
+
+
 #### Down
 
 List all up container to down
@@ -62,4 +71,9 @@ List all up container to run any command
 ```shell
  ap sh {command} 
 ```
+
+
+
+
+
 
